@@ -46,7 +46,6 @@ public class DfaGeneratorTest {
         for (Alphabets alphabets : failCases) {
             assertFalse(dfa.check(alphabets));
         }
-
     }
 
 }
