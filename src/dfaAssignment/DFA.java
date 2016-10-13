@@ -11,7 +11,6 @@ public class DFA {
     private final States finalStates;
 
     private DFA(States states, Alphabets alphabets, Transsitions transsitions, State initialState, States finalStates) {
-
         this.states = states;
         this.alphabets = alphabets;
         this.transsitions = transsitions;
@@ -19,14 +18,15 @@ public class DFA {
         this.finalStates = finalStates;
     }
 
-    public static DFA generateDFA(States states, Alphabets alphabets, Transsitions transsitions, State initialState, States finalStates){
+    public static DFA generateDFA(States states, Alphabets alphabets, Transsitions transsitions, State initialState, States finalStates) throws InvalidTupleException {
         boolean finalStatesValidation = states.hasState(finalStates);
-        boolean initialStateValidation = states.hasState(finalStates);
-
-        return new DFA(states, alphabets, transsitions, initialState, finalStates);
+        boolean initialStateValidation = states.hasState(initialState);
+        if(finalStatesValidation && initialStateValidation)
+            return new DFA(states, alphabets, transsitions, initialState, finalStates);
+        throw new InvalidTupleException();
     }
 
-    public boolean check(Alphabets string) throws NoSuchTrassitionException {
+    public boolean check(Alphabets string)  {
         State current = initialState;
         for (Alphabet alphabet : string) {
             current = transsitions.getTranssition(current, alphabet);

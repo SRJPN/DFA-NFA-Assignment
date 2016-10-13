@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 public class DFATest {
     @Test
-    public void it_gives_out_a_dfa() throws Exception, NoSuchTrassitionException {
+    public void it_gives_out_a_dfa() throws Exception, NoSuchTrassitionException, InvalidTupleException {
         States states = new States();
         State q1 = new State("q1");
         State q2 = new State("q2");
@@ -36,10 +36,6 @@ public class DFATest {
         transsitions.add(new Transsition(q1,one,q2));
         transsitions.add(new Transsition(q2,one,q3));
         transsitions.add(new Transsition(q3,one,q1));
-
-        transsitions.add(new Transsition(q2,zero,q2));
-        transsitions.add(new Transsition(q1,zero,q1));
-        transsitions.add(new Transsition(q3,zero,q3));
 
         DFA dfa = DFA.generateDFA(states, alphabets, transsitions, q1, finalStates);
 
