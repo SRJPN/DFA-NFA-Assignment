@@ -23,4 +23,8 @@ public class States {
     public boolean hasState(State state) {
         return states.contains(state);
     }
+
+    public int size() {
+        return states.size();
+    }
 }

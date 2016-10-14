@@ -37,6 +37,10 @@ public class DFATest {
         transsitions.add(new Transsition(q2,one,q3));
         transsitions.add(new Transsition(q3,one,q1));
 
+        transsitions.add(new Transsition(q1,zero,q1));
+        transsitions.add(new Transsition(q2,zero,q2));
+        transsitions.add(new Transsition(q3,zero,q3));
+
         DFA dfa = DFA.generateDFA(states, alphabets, transsitions, q1, finalStates);
 
         Alphabets testPassString = new Alphabets();

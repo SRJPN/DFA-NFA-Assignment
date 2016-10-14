@@ -21,16 +21,21 @@ public class DFA {
     public static DFA generateDFA(States states, Alphabets alphabets, Transsitions transsitions, State initialState, States finalStates) throws InvalidTupleException {
         boolean finalStatesValidation = states.hasState(finalStates);
         boolean initialStateValidation = states.hasState(initialState);
-        if(finalStatesValidation && initialStateValidation)
+        boolean transsitionAlphabetValidation = transsitionAlphabetValidation(transsitions, alphabets, states);
+        if(finalStatesValidation && initialStateValidation && transsitionAlphabetValidation)
             return new DFA(states, alphabets, transsitions, initialState, finalStates);
         throw new InvalidTupleException();
     }
 
-    public boolean check(Alphabets string)  {
+    public boolean check(Alphabets string) throws NoSuchTrassitionException {
         State current = initialState;
         for (Alphabet alphabet : string) {
             current = transsitions.getTranssition(current, alphabet);
         }
         return finalStates.hasState(current);
+    }
+
+    private static boolean transsitionAlphabetValidation(Transsitions transsitions, Alphabets alphabets, States states){
+        return transsitions.size() == (alphabets.size()*states.size());
     }
 }

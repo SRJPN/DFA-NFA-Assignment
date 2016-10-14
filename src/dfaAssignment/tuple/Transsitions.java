@@ -13,12 +13,16 @@ public class Transsitions {
         return transsitions.add(transsition);
     }
 
-    public State getTranssition(State from, Alphabet alphabet) {
+    public State getTranssition(State from, Alphabet alphabet) throws NoSuchTrassitionException {
         for (Transsition transsition : transsitions) {
             if(transsition.hasTranssition(from, alphabet)){
                 return transsition.getTo();
             }
         }
-        return from;
+        throw new NoSuchTrassitionException(from, alphabet);
+    }
+
+    public int size() {
+        return transsitions.size();
     }
 }
