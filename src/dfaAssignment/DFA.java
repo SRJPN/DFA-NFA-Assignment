@@ -6,36 +6,36 @@ public class DFA {
 
     private final States states;
     private final Alphabets alphabets;
-    private final Transsitions transsitions;
+    private final Transitions transitions;
     private final State initialState;
     private final States finalStates;
 
-    private DFA(States states, Alphabets alphabets, Transsitions transsitions, State initialState, States finalStates) {
+    private DFA(States states, Alphabets alphabets, Transitions transitions, State initialState, States finalStates) {
         this.states = states;
         this.alphabets = alphabets;
-        this.transsitions = transsitions;
+        this.transitions = transitions;
         this.initialState = initialState;
         this.finalStates = finalStates;
     }
 
-    public static DFA generateDFA(States states, Alphabets alphabets, Transsitions transsitions, State initialState, States finalStates) throws InvalidTupleException {
+    public static DFA generateDFA(States states, Alphabets alphabets, Transitions transitions, State initialState, States finalStates) throws InvalidTupleException {
         boolean finalStatesValidation = states.hasState(finalStates);
         boolean initialStateValidation = states.hasState(initialState);
-        boolean transsitionAlphabetValidation = transsitionAlphabetValidation(transsitions, alphabets, states);
+        boolean transsitionAlphabetValidation = transsitionAlphabetValidation(transitions, alphabets, states);
         if(finalStatesValidation && initialStateValidation && transsitionAlphabetValidation)
-            return new DFA(states, alphabets, transsitions, initialState, finalStates);
+            return new DFA(states, alphabets, transitions, initialState, finalStates);
         throw new InvalidTupleException();
     }
 
     public boolean check(Alphabets string) throws NoSuchTrassitionException {
         State current = initialState;
         for (Alphabet alphabet : string) {
-            current = transsitions.getTranssition(current, alphabet);
+            current = transitions.getTransition(current, alphabet);
         }
         return finalStates.hasState(current);
     }
 
-    private static boolean transsitionAlphabetValidation(Transsitions transsitions, Alphabets alphabets, States states){
-        return transsitions.size() == (alphabets.size()*states.size());
+    private static boolean transsitionAlphabetValidation(Transitions transitions, Alphabets alphabets, States states){
+        return transitions.size() == (alphabets.size()*states.size());
     }
 }

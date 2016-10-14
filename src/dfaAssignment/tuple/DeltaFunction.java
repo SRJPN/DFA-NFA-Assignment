@@ -1,16 +1,14 @@
 package dfaAssignment.tuple;
 
-import java.util.NoSuchElementException;
-
 public class DeltaFunction {
-    private final Transsitions transsitions;
+    private final Transitions transitions;
 
-    public DeltaFunction(Transsitions transsitions) {
-        this.transsitions = transsitions;
+    public DeltaFunction(Transitions transitions) {
+        this.transitions = transitions;
     }
 //
 //    public State somthing(State from, Alphabet alphabet) throws NoSuchTrassitionException {
-//        for (Transsition transsition : transsitions) {
+//        for (Transition transsition : transitions) {
 //            if(transsition.hasTranssition(from, alphabet)){
 //                return transsition.transsition(from, alphabet);
 //            }

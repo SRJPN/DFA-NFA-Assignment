@@ -17,7 +17,7 @@ public class States {
     }
 
     public boolean hasState(States finalStates) {
-        return states.containsAll((Collection<State>) finalStates.states);
+        return states.containsAll(finalStates.states);
     }
 
     public boolean hasState(State state) {

@@ -4,15 +4,15 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TranssitionTest {
+public class TransitionTest {
     @Test
     public void hasTranssition_returns_true_for_valied_transition() throws Exception {
         State from = new State("q1");
         State to = new State("q2");
         Alphabet a = new Alphabet("A");
-        Transsition transsition = new Transsition(from, a, to);
+        Transition transition = new Transition(from, a, to);
 
-        assertTrue(transsition.hasTranssition(from, a));
+        assertTrue(transition.hasTranssition(from, a));
     }
 
     @Test
@@ -20,9 +20,9 @@ public class TranssitionTest {
         State from = new State("q1");
         State to = new State("q2");
         Alphabet a = new Alphabet("A");
-        Transsition transsition = new Transsition(from, a, to);
+        Transition transition = new Transition(from, a, to);
 
-        assertFalse(transsition.hasTranssition(from, new Alphabet("B")));
+        assertFalse(transition.hasTranssition(from, new Alphabet("B")));
     }
 
     @Test
@@ -30,9 +30,9 @@ public class TranssitionTest {
         State from = new State("q1");
         State to = new State("q2");
         Alphabet a = new Alphabet("A");
-        Transsition transsition = new Transsition(from, a, to);
+        Transition transition = new Transition(from, a, to);
 
-        assertFalse(transsition.hasTranssition(to, a));
+        assertFalse(transition.hasTranssition(to, a));
     }
 
 }

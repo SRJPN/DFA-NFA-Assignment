@@ -28,20 +28,20 @@ public class DFATest {
         States finalStates = new States();
         finalStates.add(q1);
 
-        Transsitions transsitions = new Transsitions();
-        transsitions.add(new Transsition(q1,two,q3));
-        transsitions.add(new Transsition(q3,two,q2));
-        transsitions.add(new Transsition(q2,two,q1));
+        Transitions transitions = new Transitions();
+        transitions.add(new Transition(q1,two,q3));
+        transitions.add(new Transition(q3,two,q2));
+        transitions.add(new Transition(q2,two,q1));
 
-        transsitions.add(new Transsition(q1,one,q2));
-        transsitions.add(new Transsition(q2,one,q3));
-        transsitions.add(new Transsition(q3,one,q1));
+        transitions.add(new Transition(q1,one,q2));
+        transitions.add(new Transition(q2,one,q3));
+        transitions.add(new Transition(q3,one,q1));
 
-        transsitions.add(new Transsition(q1,zero,q1));
-        transsitions.add(new Transsition(q2,zero,q2));
-        transsitions.add(new Transsition(q3,zero,q3));
+        transitions.add(new Transition(q1,zero,q1));
+        transitions.add(new Transition(q2,zero,q2));
+        transitions.add(new Transition(q3,zero,q3));
 
-        DFA dfa = DFA.generateDFA(states, alphabets, transsitions, q1, finalStates);
+        DFA dfa = DFA.generateDFA(states, alphabets, transitions, q1, finalStates);
 
         Alphabets testPassString = new Alphabets();
         testPassString.add(new Alphabet("1"));
@@ -62,6 +62,31 @@ public class DFATest {
 
         assertTrue(dfa.check(testPassString));
         assertFalse(dfa.check(testFailString));
+    }
 
+    @Test
+    public void stay_in_initial_state_if_null_string_is_passed() throws Exception, NoSuchTrassitionException, InvalidTupleException {
+        States states = new States();
+        State q1 = new State("q1");
+        State q2 = new State("q2");
+        states.add(q1);
+        states.add(q2);
+
+        Alphabets alphabets = new Alphabets();
+        Alphabet zero = new Alphabet("0");
+        alphabets.add(zero);
+
+        States finalStates = new States();
+        finalStates.add(q1);
+
+        Transitions transitions = new Transitions();
+        transitions.add(new Transition(q1,zero,q2));
+        transitions.add(new Transition(q2,zero,q1));
+
+        DFA dfa = DFA.generateDFA(states, alphabets, transitions, q1, finalStates);
+
+        Alphabets testPassString = new Alphabets();
+
+        assertTrue(dfa.check(testPassString));
     }
 }

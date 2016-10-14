@@ -125,7 +125,7 @@ public class DfaGeneratorTest {
                 "                \"1\": \"q1\"\n" +
                 "            },\n" +
                 "            \"q2\": {\n" +
-                "                \"0\": \"q1\"\n" +
+                "                \"0\": \"q1\",\n" +
                 "            }\n" +
                 "        },\n" +
                 "        \"start-state\": \"q2\",\n" +

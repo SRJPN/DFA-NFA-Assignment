@@ -17,9 +17,9 @@ public class DfaGenerator {
         }
         State initialState = new State((String) tuple.get("start-state"));
         States finalStates = parseStates((JSONArray) tuple.get("final-states"));
-        Transsitions transsitions = parseTranssitions((JSONObject) tuple.get("delta"));
+        Transitions transitions = parseTranssitions((JSONObject) tuple.get("delta"));
 
-        return DFA.generateDFA(states, alphabets, transsitions, initialState, finalStates);
+        return DFA.generateDFA(states, alphabets, transitions, initialState, finalStates);
     }
 
     private States parseStates(JSONArray jsonArray){
@@ -30,17 +30,17 @@ public class DfaGenerator {
         return states;
     }
 
-    private Transsitions parseTranssitions(JSONObject jsonObject){
-        Transsitions transsitions = new Transsitions();
+    private Transitions parseTranssitions(JSONObject jsonObject){
+        Transitions transitions = new Transitions();
         Set set = jsonObject.keySet();
         for (Object from : set) {
             JSONObject o = (JSONObject) jsonObject.get(from);
             Set innerKeySet = o.keySet();
             for (Object alphabet : innerKeySet) {
-                transsitions.add(new Transsition(new State((String) from), new Alphabet((String) alphabet), new State((String) o.get(alphabet))));
+                transitions.add(new Transition(new State((String) from), new Alphabet((String) alphabet), new State((String) o.get(alphabet))));
             }
         }
-        return transsitions;
+        return transitions;
     }
 
     public ArrayList<Alphabets> parseCases(JSONArray jsonObject){
