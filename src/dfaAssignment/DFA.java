@@ -21,13 +21,13 @@ public class DFA {
     public static DFA generateDFA(States states, Alphabets alphabets, Transitions transitions, State initialState, States finalStates) throws InvalidTupleException {
         boolean finalStatesValidation = states.hasState(finalStates);
         boolean initialStateValidation = states.hasState(initialState);
-        boolean transsitionAlphabetValidation = transsitionAlphabetValidation(transitions, alphabets, states);
-        if(finalStatesValidation && initialStateValidation && transsitionAlphabetValidation)
+        boolean transitionAlphabetValidation = transitionAlphabetValidation(transitions, alphabets, states);
+        if(finalStatesValidation && initialStateValidation && transitionAlphabetValidation)
             return new DFA(states, alphabets, transitions, initialState, finalStates);
         throw new InvalidTupleException();
     }
 
-    public boolean check(Alphabets string) throws NoSuchTrassitionException {
+    public boolean check(Alphabets string) throws NoSuchTransitionException {
         State current = initialState;
         for (Alphabet alphabet : string) {
             current = transitions.getTransition(current, alphabet);
@@ -35,7 +35,7 @@ public class DFA {
         return finalStates.hasState(current);
     }
 
-    private static boolean transsitionAlphabetValidation(Transitions transitions, Alphabets alphabets, States states){
+    private static boolean transitionAlphabetValidation(Transitions transitions, Alphabets alphabets, States states){
         return transitions.size() == (alphabets.size()*states.size());
     }
 }

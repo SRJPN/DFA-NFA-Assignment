@@ -11,7 +11,7 @@ public class Transition {
         this.to = to;
     }
 
-    public boolean hasTranssition(State from, Alphabet alphabet) {
+    public boolean hasTransition(State from, Alphabet alphabet) {
         return this.from.equals(from) && this.alphabet.equals(alphabet);
     }
 

@@ -1,7 +1,7 @@
 package dfaAssignment;
 
 import dfaAssignment.tuple.Alphabets;
-import dfaAssignment.tuple.NoSuchTrassitionException;
+import dfaAssignment.tuple.NoSuchTransitionException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,7 +20,7 @@ public class DfaGeneratorTest {
 
 
     @Test
-    public void fromJson() throws Exception, InvalidTupleException, NoSuchTrassitionException {
+    public void fromJson() throws Exception, InvalidTupleException, NoSuchTransitionException {
         JSONObject jsonObject = (JSONObject) new JSONParser().parse("{\n" +
                 "    \"name\": \"odd number of zeroes\",\n" +
                 "    \"type\": \"dfa\",\n" +

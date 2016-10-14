@@ -3,13 +3,12 @@ package dfaAssignment.tuple;
 import dfaAssignment.tuple.State;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class States {
     private final ArrayList<State> states;
 
     public States() {
-        this.states = new ArrayList<State>();
+        this.states = new ArrayList<>();
     }
 
     public boolean add(State state){

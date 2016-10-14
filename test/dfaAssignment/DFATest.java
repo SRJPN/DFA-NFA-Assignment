@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 public class DFATest {
     @Test
-    public void it_gives_out_a_dfa() throws Exception, NoSuchTrassitionException, InvalidTupleException {
+    public void it_gives_out_a_dfa() throws Exception, NoSuchTransitionException, InvalidTupleException {
         States states = new States();
         State q1 = new State("q1");
         State q2 = new State("q2");
@@ -65,7 +65,7 @@ public class DFATest {
     }
 
     @Test
-    public void stay_in_initial_state_if_null_string_is_passed() throws Exception, NoSuchTrassitionException, InvalidTupleException {
+    public void stay_in_initial_state_if_null_string_is_passed() throws Exception, NoSuchTransitionException, InvalidTupleException {
         States states = new States();
         State q1 = new State("q1");
         State q2 = new State("q2");

@@ -4,7 +4,7 @@ import dfaAssignment.DFA;
 import dfaAssignment.DfaGenerator;
 import dfaAssignment.InvalidTupleException;
 import dfaAssignment.tuple.Alphabets;
-import dfaAssignment.tuple.NoSuchTrassitionException;
+import dfaAssignment.tuple.NoSuchTransitionException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,7 +12,7 @@ import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
 
-public class Runner {
+class Runner {
     private final String jsonFile;
 
     public Runner(String jsonFile) {
@@ -30,20 +30,20 @@ public class Runner {
                 System.out.println("\t\tchecked.... OK ✓");
             }catch (InvalidTupleException invalidTuple){
                 System.out.println(invalidTuple.getMessage()+"\n");
-            }catch (InvalidStringExecption e){
-                System.out.println("DFA brokes for the string :"+e.getMessage());
-            }catch (NoSuchTrassitionException e){
+            }catch (InvalidStringException e){
+                System.out.println("DFA breaks for the string :"+e.getMessage());
+            }catch (NoSuchTransitionException e){
                 System.out.println("Invalid DFA :"+e.getMessage());
             }
         }
     }
 
-    private void check(Boolean expectation,Alphabets alphabets, DFA dfa) throws InvalidStringExecption, NoSuchTrassitionException {
+    private void check(Boolean expectation,Alphabets alphabets, DFA dfa) throws InvalidStringException, NoSuchTransitionException {
         if(expectation != dfa.check(alphabets))
-            throw new InvalidStringExecption(alphabets);
+            throw new InvalidStringException(alphabets);
     }
 
-    private void runSingleString(DfaGenerator dfaGenerator, JSONObject jsonObject) throws InvalidTupleException, NoSuchTrassitionException, InvalidStringExecption {
+    private void runSingleString(DfaGenerator dfaGenerator, JSONObject jsonObject) throws InvalidTupleException, NoSuchTransitionException, InvalidStringException {
         DFA dfa = dfaGenerator.fromJson((JSONObject) jsonObject.get("tuple"));
         ArrayList<Alphabets> passCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("pass-cases"));
         for (Alphabets alphabets : passCases) {

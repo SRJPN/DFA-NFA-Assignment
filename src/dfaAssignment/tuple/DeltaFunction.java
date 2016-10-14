@@ -1,18 +1,18 @@
 package dfaAssignment.tuple;
 
-public class DeltaFunction {
+class DeltaFunction {
     private final Transitions transitions;
 
     public DeltaFunction(Transitions transitions) {
         this.transitions = transitions;
     }
 //
-//    public State somthing(State from, Alphabet alphabet) throws NoSuchTrassitionException {
+//    public State somthing(State from, Alphabet alphabet) throws NoSuchTransitionException {
 //        for (Transition transsition : transitions) {
-//            if(transsition.hasTranssition(from, alphabet)){
+//            if(transsition.hasTransition(from, alphabet)){
 //                return transsition.transsition(from, alphabet);
 //            }
 //        }
-//        throw new NoSuchTrassitionException(from, alphabet);
+//        throw new NoSuchTransitionException(from, alphabet);
 //    }
 }

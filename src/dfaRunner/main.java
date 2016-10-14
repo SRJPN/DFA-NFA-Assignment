@@ -20,7 +20,7 @@ public class main {
         }
     }
 
-    public static String reader(String fileName){
+    private static String reader(String fileName){
         String result = "";
         try (BufferedReader br = new BufferedReader(new FileReader(fileName)))
         {

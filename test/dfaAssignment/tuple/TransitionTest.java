@@ -12,7 +12,7 @@ public class TransitionTest {
         Alphabet a = new Alphabet("A");
         Transition transition = new Transition(from, a, to);
 
-        assertTrue(transition.hasTranssition(from, a));
+        assertTrue(transition.hasTransition(from, a));
     }
 
     @Test
@@ -22,7 +22,7 @@ public class TransitionTest {
         Alphabet a = new Alphabet("A");
         Transition transition = new Transition(from, a, to);
 
-        assertFalse(transition.hasTranssition(from, new Alphabet("B")));
+        assertFalse(transition.hasTransition(from, new Alphabet("B")));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class TransitionTest {
         Alphabet a = new Alphabet("A");
         Transition transition = new Transition(from, a, to);
 
-        assertFalse(transition.hasTranssition(to, a));
+        assertFalse(transition.hasTransition(to, a));
     }
 
 }
