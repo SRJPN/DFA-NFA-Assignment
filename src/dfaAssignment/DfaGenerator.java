@@ -47,9 +47,11 @@ public class DfaGenerator {
         ArrayList<Alphabets> alphabetses = new ArrayList<Alphabets>();
         for (Object string : jsonObject) {
             Alphabets alphabets = new Alphabets();
-            String[] string1 = ((String) string).split("");
-            for (String alphabet : string1) {
-                alphabets.add(new Alphabet(alphabet));
+            if(!((String) string).isEmpty()) {
+                String[] string1 = ((String) string).split("");
+                for (String alphabet : string1) {
+                    alphabets.add(new Alphabet(alphabet));
+                }
             }
             alphabetses.add(alphabets);
         }
