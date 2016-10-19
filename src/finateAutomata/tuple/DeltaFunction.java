@@ -1,4 +1,4 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
 class DeltaFunction {
     private final Transitions transitions;

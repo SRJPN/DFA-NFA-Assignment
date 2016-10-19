@@ -1,4 +1,4 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
 import java.util.HashSet;
 import java.util.Iterator;

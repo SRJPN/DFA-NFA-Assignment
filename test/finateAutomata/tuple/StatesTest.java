@@ -1,4 +1,4 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package dfaAssignment;
+package finateAutomata.tuple;
 
 public class InvalidTupleException extends Throwable {
     public InvalidTupleException() {

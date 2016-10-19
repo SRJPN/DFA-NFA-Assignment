@@ -1,4 +1,4 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
 public class Transition {
     private final State from;

@@ -1,4 +1,4 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
 public class Alphabet {
     private final String alphabet;

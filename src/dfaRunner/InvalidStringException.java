@@ -1,7 +1,6 @@
 package dfaRunner;
 
-import dfaAssignment.tuple.Alphabet;
-import dfaAssignment.tuple.Alphabets;
+import finateAutomata.tuple.Alphabet;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,7 @@
-package dfaAssignment;
+package finateAutomata;
 
-import dfaAssignment.tuple.*;
+import finateAutomata.dfa.DFA;
+import finateAutomata.tuple.*;
 import org.junit.Test;
 
 import java.util.ArrayList;

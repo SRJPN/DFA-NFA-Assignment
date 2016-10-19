@@ -1,6 +1,7 @@
-package dfaAssignment;
+package finateAutomata.dfa;
 
-import dfaAssignment.tuple.*;
+import finateAutomata.tuple.InvalidTupleException;
+import finateAutomata.tuple.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;

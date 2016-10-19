@@ -1,14 +1,12 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
-import dfaAssignment.tuple.State;
-
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class States {
-    private final ArrayList<State> states;
+    private final HashSet<State> states;
 
     public States() {
-        this.states = new ArrayList<>();
+        this.states = new HashSet<>();
     }
 
     public boolean add(State state){

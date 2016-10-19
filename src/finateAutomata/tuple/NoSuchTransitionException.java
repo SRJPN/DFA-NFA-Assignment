@@ -1,4 +1,4 @@
-package dfaAssignment.tuple;
+package finateAutomata.tuple;
 
 public class NoSuchTransitionException extends Throwable {
     public NoSuchTransitionException(State from, Alphabet alphabet) {

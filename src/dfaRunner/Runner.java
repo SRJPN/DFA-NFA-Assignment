@@ -1,10 +1,10 @@
 package dfaRunner;
 
-import dfaAssignment.DFA;
-import dfaAssignment.DfaGenerator;
-import dfaAssignment.InvalidTupleException;
-import dfaAssignment.tuple.Alphabet;
-import dfaAssignment.tuple.NoSuchTransitionException;
+import finateAutomata.dfa.DFA;
+import finateAutomata.dfa.DfaGenerator;
+import finateAutomata.tuple.InvalidTupleException;
+import finateAutomata.tuple.Alphabet;
+import finateAutomata.tuple.NoSuchTransitionException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

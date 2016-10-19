@@ -1,5 +1,6 @@
-package dfaAssignment;
-import dfaAssignment.tuple.*;
+package finateAutomata.dfa;
+import finateAutomata.tuple.InvalidTupleException;
+import finateAutomata.tuple.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
