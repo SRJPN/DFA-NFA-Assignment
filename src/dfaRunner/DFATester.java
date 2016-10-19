@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class main {
+public class DFATester {
     public static void main(String[] args) throws FileNotFoundException {
         String jsonString = reader(args[0]);
         Runner runner = new Runner(jsonString);

@@ -3,6 +3,8 @@ package dfaAssignment;
 import dfaAssignment.tuple.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -43,7 +45,7 @@ public class DFATest {
 
         DFA dfa = DFA.generateDFA(states, alphabets, transitions, q1, finalStates);
 
-        Alphabets testPassString = new Alphabets();
+        ArrayList<Alphabet> testPassString = new ArrayList<>();
         testPassString.add(new Alphabet("1"));
         testPassString.add(new Alphabet("2"));
         testPassString.add(new Alphabet("1"));
@@ -52,7 +54,7 @@ public class DFATest {
         testPassString.add(new Alphabet("1"));
         testPassString.add(new Alphabet("1"));
 
-        Alphabets testFailString = new Alphabets();
+        ArrayList<Alphabet> testFailString = new ArrayList<>();
         testFailString.add(new Alphabet("1"));
         testFailString.add(new Alphabet("2"));
         testFailString.add(new Alphabet("1"));
@@ -85,7 +87,7 @@ public class DFATest {
 
         DFA dfa = DFA.generateDFA(states, alphabets, transitions, q1, finalStates);
 
-        Alphabets testPassString = new Alphabets();
+        ArrayList<Alphabet> testPassString = new ArrayList<>();
 
         assertTrue(dfa.check(testPassString));
     }

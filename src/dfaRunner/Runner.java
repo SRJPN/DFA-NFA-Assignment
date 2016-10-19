@@ -3,7 +3,7 @@ package dfaRunner;
 import dfaAssignment.DFA;
 import dfaAssignment.DfaGenerator;
 import dfaAssignment.InvalidTupleException;
-import dfaAssignment.tuple.Alphabets;
+import dfaAssignment.tuple.Alphabet;
 import dfaAssignment.tuple.NoSuchTransitionException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -38,20 +38,20 @@ class Runner {
         }
     }
 
-    private void check(Boolean expectation,Alphabets alphabets, DFA dfa) throws InvalidStringException, NoSuchTransitionException {
+    private void check(Boolean expectation, ArrayList<Alphabet> alphabets, DFA dfa) throws InvalidStringException, NoSuchTransitionException {
         if(expectation != dfa.check(alphabets))
             throw new InvalidStringException(alphabets);
     }
 
     private void runSingleString(DfaGenerator dfaGenerator, JSONObject jsonObject) throws InvalidTupleException, NoSuchTransitionException, InvalidStringException {
         DFA dfa = dfaGenerator.fromJson((JSONObject) jsonObject.get("tuple"));
-        ArrayList<Alphabets> passCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("pass-cases"));
-        for (Alphabets alphabets : passCases) {
+        ArrayList<ArrayList<Alphabet>> passCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("pass-cases"));
+        for (ArrayList<Alphabet> alphabets : passCases) {
             check(true, alphabets, dfa);
         }
 
-        ArrayList<Alphabets> failCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("fail-cases"));
-        for (Alphabets alphabets : failCases) {
+        ArrayList<ArrayList<Alphabet>> failCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("fail-cases"));
+        for (ArrayList<Alphabet> alphabets : failCases) {
             check(false, alphabets, dfa);
         }
     }

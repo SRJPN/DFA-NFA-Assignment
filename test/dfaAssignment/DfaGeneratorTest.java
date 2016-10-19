@@ -1,5 +1,6 @@
 package dfaAssignment;
 
+import dfaAssignment.tuple.Alphabet;
 import dfaAssignment.tuple.Alphabets;
 import dfaAssignment.tuple.NoSuchTransitionException;
 import org.json.simple.JSONArray;
@@ -45,13 +46,13 @@ public class DfaGeneratorTest {
                 "}");
         DfaGenerator dfaGenerator = new DfaGenerator();
         DFA dfa = dfaGenerator.fromJson((JSONObject) jsonObject.get("tuple"));
-        ArrayList<Alphabets> passCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("pass-cases"));
-        for (Alphabets alphabets : passCases) {
+        ArrayList<ArrayList<Alphabet>> passCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("pass-cases"));
+        for (ArrayList<Alphabet> alphabets : passCases) {
             assertTrue(dfa.check(alphabets));
         }
 
-        ArrayList<Alphabets> failCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("fail-cases"));
-        for (Alphabets alphabets : failCases) {
+        ArrayList<ArrayList<Alphabet>> failCases = dfaGenerator.parseCases((JSONArray) jsonObject.get("fail-cases"));
+        for (ArrayList<Alphabet> alphabets : failCases) {
             assertFalse(dfa.check(alphabets));
         }
     }

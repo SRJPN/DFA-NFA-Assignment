@@ -2,6 +2,9 @@ package dfaAssignment;
 
 import dfaAssignment.tuple.*;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class DFA {
 
     private final States states;
@@ -27,10 +30,11 @@ public class DFA {
         throw new InvalidTupleException();
     }
 
-    public boolean check(Alphabets string) throws NoSuchTransitionException {
+    public boolean check(ArrayList<Alphabet> string) throws NoSuchTransitionException {
         State current = initialState;
-        for (Alphabet alphabet : string) {
-            current = transitions.getTransition(current, alphabet);
+        Iterator<Alphabet> iterator = string.iterator();
+        while (iterator.hasNext()){
+            current = transitions.getTransition(current, iterator.next());
         }
         return finalStates.hasState(current);
     }

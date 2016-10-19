@@ -43,10 +43,10 @@ public class DfaGenerator {
         return transitions;
     }
 
-    public ArrayList<Alphabets> parseCases(JSONArray jsonObject){
-        ArrayList<Alphabets> alphabetses = new ArrayList<>();
+    public ArrayList<ArrayList<Alphabet>> parseCases(JSONArray jsonObject){
+        ArrayList<ArrayList<Alphabet>> alphabetses = new ArrayList<>();
         for (Object string : jsonObject) {
-            Alphabets alphabets = new Alphabets();
+            ArrayList<Alphabet> alphabets = new ArrayList<Alphabet>();
             if(!((String) string).isEmpty()) {
                 String[] string1 = ((String) string).split("");
                 for (String alphabet : string1) {
